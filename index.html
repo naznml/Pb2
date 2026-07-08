@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Педагогика | Бастауыш сыныптар үшін</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #4f46e5;
+      --primary-soft: #eef2ff;
+      --border: #e5e7eb;
+      --success: #16a34a;
+      --success-bg: #dcfce7;
+      --danger: #dc2626;
+      --danger-bg: #fee2e2;
+      --warning-bg: #fff7ed;
+      --warning-border: #fed7aa;
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .app {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px 14px 40px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: white;
+      border-radius: 24px;
+      padding: 24px 18px;
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 27px;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      margin: 0;
+      font-size: 15px;
+      opacity: 0.92;
+    }
+
+    .top-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .info-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 15px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+    }
+
+    .info-card span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .info-card strong {
+      display: block;
+      font-size: 15px;
+      color: var(--text);
+    }
+
+    .notice {
+      background: var(--warning-bg);
+      border: 1px solid var(--warning-border);
+      border-radius: var(--radius);
+      padding: 14px;
+      margin-bottom: 18px;
+      font-size: 14px;
+    }
+
+    .notice strong {
+      color: #9a3412;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .sidebar {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+    }
+
+    .sidebar h2 {
+      margin: 0 0 10px;
+      font-size: 16px;
+    }
+
+    .section-btn {
+      width: 100%;
+      text-align: left;
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 14px;
+      padding: 11px 12px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.35;
+      transition: 0.2s ease;
+    }
+
+    .section-btn:hover,
+    .section-btn.active {
+      background: var(--primary-soft);
+      border-color: #c7d2fe;
+      color: #312e81;
+    }
+
+    .content {
+      min-width: 0;
+    }
+
+    .book-card,
+    .chapter-card,
+    .quiz-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+
+    .book-card {
+      padding: 18px;
+    }
+
+    .book-card h2 {
+      margin: 0 0 8px;
+      font-size: 21px;
+      letter-spacing: -0.02em;
+    }
+
+    .book-card p {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .source-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary-soft);
+      color: #3730a3;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    .chapter-header {
+      padding: 17px 18px;
+      border-bottom: 1px solid var(--border);
+      background: #fbfbff;
+    }
+
+    .chapter-header h2 {
+      margin: 0 0 6px;
+      font-size: 20px;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .chapter-header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .important {
+      padding: 15px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .important h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .important ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .important li {
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .match-box {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      background: #f9fafb;
+    }
+
+    .match-box h3 {
+      margin: 0 0 8px;
+      font-size: 15px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--border);
+      color: #374151;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .quiz-card {
+      padding: 16px 18px;
+    }
+
+    .quiz-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+
+    .quiz-title h3 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.3;
+    }
+
+    .quiz-count {
+      flex: 0 0 auto;
+      background: var(--primary-soft);
+      color: #3730a3;
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .question {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 12px;
+      background: #fff;
+    }
+
+    .question h4 {
+      margin: 0 0 10px;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .options {
+      display: grid;
+      gap: 8px;
+    }
+
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      padding: 10px 11px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.15s ease;
+      background: #fff;
+      font-size: 14px;
+    }
+
+    .option:hover {
+      background: #f9fafb;
+    }
+
+    .option input {
+      margin-top: 3px;
+      flex: 0 0 auto;
+    }
+
+    .option.correct {
+      background: var(--success-bg);
+      border-color: #86efac;
+      color: #14532d;
+      font-weight: 600;
+    }
+
+    .option.wrong {
+      background: var(--danger-bg);
+      border-color: #fecaca;
+      color: #7f1d1d;
+    }
+
+    .explanation {
+      display: none;
+      margin-top: 10px;
+      padding: 11px;
+      border-radius: 12px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    .explanation.show {
+      display: block;
+    }
+
+    .explanation strong {
+      color: #111827;
+    }
+
+    .source {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px dashed #d1d5db;
+      padding-top: 8px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 14px;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 14px;
+      padding: 11px 15px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(0.95);
+    }
+
+    .btn-soft {
+      background: var(--primary-soft);
+      color: #3730a3;
+    }
+
+    .result-box {
+      display: none;
+      margin-top: 12px;
+      padding: 13px;
+      border-radius: 14px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #14532d;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .result-box.show {
+      display: block;
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 860px) {
+      .top-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 23px;
+      }
+
+      .quiz-title {
+        flex-direction: column;
+      }
+
+      .quiz-count {
+        align-self: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <section class="hero">
+      <div class="hero-badge">Магистратураға дайындық • Педагогика</div>
+      <h1>Педагогика: бастауыш сыныптар үшін</h1>
+      <p>
+        Дайындық материалы ресми спецификация тақырыптарымен сәйкестендіріліп,
+        әдебиеттердің нақты бөлімдері бойынша құрастырылды.
+      </p>
+    </section>
+
+    <section class="top-grid">
+      <div class="info-card">
+        <span>Пән</span>
+        <strong>Педагогика</strong>
+      </div>
+      <div class="info-card">
+        <span>Бағыт</span>
+        <strong>Бастауыш сыныптар үшін</strong>
+      </div>
+      <div class="info-card">
+        <span>Формат</span>
+        <strong>5 нұсқа • 1 дұрыс жауап</strong>
+      </div>
+    </section>
+
+    <div class="notice">
+      <strong>Ескерту:</strong>
+      ресми КТ нұсқасындағы 30 сұрақ — тек емтихан форматы.
+      Бұл дайындық сайтында сұрақ саны бөлімнің көлеміне және спецификацияға сәйкес келетін материал мөлшеріне қарай беріледі.
+    </div>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <h2>№2 әдебиет бөлімдері</h2>
+        <button class="section-btn active" onclick="showSection('chapter-1', this)">
+          2-бөлім, 1-тарау<br>
+          Білім беру ұйымдарындағы тәрбие жұмысы
+        </button>
+        <button class="section-btn" onclick="showSection('chapter-2', this)">
+          2-бөлім, 2-тарау<br>
+          Балалардың құқықтары мен мүдделерін қорғау
+        </button>
+        <button class="section-btn" onclick="showSection('chapter-3', this)">
+          2-бөлім, 3-тарау<br>
+          Педагог мәртебесі
+        </button>
+        <button class="section-btn" onclick="showSection('chapter-4', this)">
+          2-бөлім, 4-тарау<br>
+          Мектепке дейінгі тәрбие мен оқыту
+        </button>
+        <button class="section-btn" onclick="showSection('chapter-5', this)">
+          2-бөлім, 5-тарау<br>
+          Орта білім беру
+        </button>
+      </aside>
+
+      <main class="content">
+        <section class="book-card">
+          <h2>№2 әдебиет</h2>
+          <p>
+            Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы.
+          </p>
+          <p>
+            Бұл бөлімде құжаттағы нақты тараулар алынып, ресми спецификациядағы педагогика тақырыптарына сәйкес келетін материалдар бойынша тесттер жасалды.
+          </p>
+          <div class="source-line">Дереккөз: №2 әдебиет • ҚР Үкіметінің 2022 жылғы 24 қарашадағы №941 қаулысы</div>
+        </section>
+
+        <section id="chapter-1" class="chapter-section">
+          <div class="chapter-card">
+            <div class="chapter-header">
+              <h2>2-бөлім. Ағымдағы жағдайды талдау</h2>
+              <p>1-тарау. Білім беру ұйымдарындағы тәрбие жұмысы</p>
+            </div>
+
+            <div class="important">
+              <h3>Маңызды тұстар</h3>
+              <ul>
+                <li>Білім беру жүйесі адами капиталды дамытудың басты басымдығы ретінде қарастырылады.</li>
+                <li>Тәрбие жұмысы мұғалімнің педагогикалық шеберлігімен, оқушының жеке ерекшелігін білуімен және қолайлы орта құрумен байланысты.</li>
+                <li>Ұлттық, отбасылық, патриоттық, идеологиялық тәрбие және оқу мәдениетін дамыту ерекше орын алады.</li>
+                <li>Қосымша білім беру, дене тәрбиесі және мектеп ортасының қауіпсіздігі тәрбие жұмысының маңызды бағыттары ретінде берілген.</li>
+              </ul>
+            </div>
+
+            <div class="match-box">
+              <h3>Спецификациямен сәйкестігі</h3>
+              <div class="tag-list">
+                <span class="tag">Тұтас педагогикалық үдерістегі тәрбие</span>
+                <span class="tag">Педагогтың тұлғасы және шеберлігі</span>
+                <span class="tag">Тұлғаның дамуы мен қалыптасуы</span>
+                <span class="tag">Білім берудің орны мен рөлі</span>
+                <span class="tag">Педагогикалық үдеріс</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-card" data-quiz="quiz-1">
+            <div class="quiz-title">
+              <h3>Тест 1. Тәрбие жұмысының мәні және білім беру ұйымындағы рөлі</h3>
+              <span class="quiz-count">10 сұрақ</span>
+            </div>
+
+            <div class="question" data-answer="B">
+              <h4>1. Тұжырымдамада білім беру жүйесі қандай негізгі басымдықтардың бірі ретінде сипатталады?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q1" value="A"> A) әлеуметтік инфрақұрылымды жаңартудың қосымша бағыты</label>
+                <label class="option"><input type="radio" name="q1" value="B"> B) адами капиталды дамытудың басты басымдығы</label>
+                <label class="option"><input type="radio" name="q1" value="C"> C) мәдени іс-шараларды ұйымдастырудың тұрақты құралы</label>
+                <label class="option"><input type="radio" name="q1" value="D"> D) экономикалық жоспарлауды толықтырудың жанама тетігі</label>
+                <label class="option"><input type="radio" name="q1" value="E"> E) қоғамдық бақылауды күшейтудің әкімшілік жолы</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: B.</strong>
+                Құжатта білім беру жүйесі адами капиталды дамытудың басты басымдықтарының бірі ретінде берілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 5-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <h4>2. Тәрбие жұмысының жетістігі құжатта ең алдымен немен байланыстырылған?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q2" value="A"> A) сыныптағы оқушылар санының біркелкі болуымен</label>
+                <label class="option"><input type="radio" name="q2" value="B"> B) мектеп ғимаратының техникалық жаңаруымен</label>
+                <label class="option"><input type="radio" name="q2" value="C"> C) оқу пәндерінің сағат көлемінің артуымен</label>
+                <label class="option"><input type="radio" name="q2" value="D"> D) мұғалімнің педагогикалық шеберлігімен</label>
+                <label class="option"><input type="radio" name="q2" value="E"> E) бақылау рәсімдерінің жиі өткізілуімен</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: D.</strong>
+                Тәрбие жұмысының нәтижесі мұғалімнің педагогикалық шеберлігіне, оқушылардың жеке ерекшеліктерін білуіне және ұжымның тәрбиелік міндеттеріне байланысты.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 5-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="A">
+              <h4>3. Құжат бойынша баланың толыққанды дамуы үшін тәрбие процесінде қандай жағдай маңызды?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q3" value="A"> A) ата-аналардың қатысуы және қолайлы оқу ортасының құрылуы</label>
+                <label class="option"><input type="radio" name="q3" value="B"> B) оқушылардың тек пәндік дайындықпен шектелуі</label>
+                <label class="option"><input type="radio" name="q3" value="C"> C) тәрбиелік жұмыстың тек сынып жетекшіге берілуі</label>
+                <label class="option"><input type="radio" name="q3" value="D"> D) оқу процесінің тек бақылау нәтижесіне бағынуы</label>
+                <label class="option"><input type="radio" name="q3" value="E"> E) қосымша іс-шаралардың толық қысқартылуы</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: A.</strong>
+                Құжатта баланың толыққанды дамуы үшін тәрбие процесіне ата-аналардың қатысуы және оқу үшін қолайлы жағдай мен орта құру қажет екені көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 5-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <h4>4. Қолайлы мектеп ортасын қалыптастыруда құжатта кімнің ерекше рөлі аталады?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q4" value="A"> A) пәндік олимпиада жетекшісінің</label>
+                <label class="option"><input type="radio" name="q4" value="B"> B) техникалық қызметкердің</label>
+                <label class="option"><input type="radio" name="q4" value="C"> C) сынып жетекшісінің</label>
+                <label class="option"><input type="radio" name="q4" value="D"> D) сыртқы сарапшының</label>
+                <label class="option"><input type="radio" name="q4" value="E"> E) бақылаушы органның</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: C.</strong>
+                Құжатта қолайлы мектеп ортасын қалыптастыруда сынып жетекшісінің ерекше рөл атқаратыны нақты айтылған.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 5-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="E">
+              <h4>5. Балаларды тәрбиелеу қандай құндылықтарды ескере отырып жүзеге асырылуға тиіс?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q5" value="A"> A) ұйымдастырушылық талаптарды</label>
+                <label class="option"><input type="radio" name="q5" value="B"> B) әкімшілік нормаларды</label>
+                <label class="option"><input type="radio" name="q5" value="C"> C) пәндік көрсеткіштерді</label>
+                <label class="option"><input type="radio" name="q5" value="D"> D) статистикалық өлшемдерді</label>
+                <label class="option"><input type="radio" name="q5" value="E"> E) ұлттық құндылықтарды</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: E.</strong>
+                Тұжырымдамада балаларды тәрбиелеу ұлттық құндылықтарды ескере отырып жүзеге асырылуға тиіс екені көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 5-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="B">
+              <h4>6. Құжатта базалық ұлттық құндылықтардың бірі ретінде не дәріптелуге тиіс деп көрсетілген?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q6" value="A"> A) кәсіби жарыс құндылықтары</label>
+                <label class="option"><input type="radio" name="q6" value="B"> B) отбасы құндылықтары</label>
+                <label class="option"><input type="radio" name="q6" value="C"> C) әкімшілік басқару құндылықтары</label>
+                <label class="option"><input type="radio" name="q6" value="D"> D) техникалық жабдықтау құндылықтары</label>
+                <label class="option"><input type="radio" name="q6" value="E"> E) есептік көрсеткіш құндылықтары</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: B.</strong>
+                Құжатта отбасы құндылықтары базалық ұлттық құндылықтардың бірі ретінде көрсетіліп, оны жастар арасында дәріптеу қажеттігі айтылған.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 5-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <h4>7. Отбасын сақтау құжатта қандай мағынада сипатталады?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q7" value="A"> A) мектеп ішіндегі есептілікті жеңілдетудің шарты ретінде</label>
+                <label class="option"><input type="radio" name="q7" value="B"> B) оқыту мазмұнын қысқартудың тәсілі ретінде</label>
+                <label class="option"><input type="radio" name="q7" value="C"> C) пәндік бақылауды күшейтудің құралы ретінде</label>
+                <label class="option"><input type="radio" name="q7" value="D"> D) Отанымыздың орнықтылығының кепілі ретінде</label>
+                <label class="option"><input type="radio" name="q7" value="E"> E) оқу жүктемесін бөлудің өлшемі ретінде</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: D.</strong>
+                Құжатта әрбір отбасын сақтау Отанымыздың орнықтылығының кепілі екені және дәстүрлер мен ұлттық құндылықтарды сақтауда маңызды екені айтылады.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 5-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="A">
+              <h4>8. Білім беру ұйымдарында отбасылық құндылықтарды дәріптеу үшін қандай іс-шаралар іске асырылады?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q8" value="A"> A) сынып сағаттары, конкурстар, акциялар, семинар-тренингтер</label>
+                <label class="option"><input type="radio" name="q8" value="B"> B) тек емтихан, рейтинг, бақылау, әкімшілік тексеріс</label>
+                <label class="option"><input type="radio" name="q8" value="C"> C) тек есеп, хаттама, бұйрық, статистикалық анықтама</label>
+                <label class="option"><input type="radio" name="q8" value="D"> D) тек жоспар, кесте, тізім, қаржылық есеп</label>
+                <label class="option"><input type="radio" name="q8" value="E"> E) тек нұсқаулық, акт, мониторинг, ресми жауап</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: A.</strong>
+                Отбасылық құндылықтарды дәріптеу үшін білім беру ұйымдарында сынып сағаттары, бейнероликтер, конкурстар, флешмобтар, акциялар, семинар-тренингтер және басқа іс-шаралар өткізіледі.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 5-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <h4>9. «Отбасы күні» шеңберінде балалар мен ата-аналар үшін қандай бағыттағы бірлескен мектеп жобалары өткізіледі?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q9" value="A"> A) оқу нәтижесін рейтинг арқылы салыстыру бойынша</label>
+                <label class="option"><input type="radio" name="q9" value="B"> B) пәндік тапсырмаларды қайта бөлу бойынша</label>
+                <label class="option"><input type="radio" name="q9" value="C"> C) отбасын нығайту бойынша</label>
+                <label class="option"><input type="radio" name="q9" value="D"> D) әкімшілік құжаттарды тексеру бойынша</label>
+                <label class="option"><input type="radio" name="q9" value="E"> E) оқу кабинеттерін есепке алу бойынша</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: C.</strong>
+                Құжатта Отбасы күні шеңберінде отбасын нығайту бойынша балалар мен ата-аналарға арналған бірлескен мектеп жобалары өткізілетіні көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 6-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="E">
+              <h4>10. Құжатта мектептерде іске асырылып жатқан ата-аналармен байланысты бастамалар қатарына қайсысы жатады?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q10" value="A"> A) «Оқушы рейтингі», «Пәндік есеп», «Бақылау журналы»</label>
+                <label class="option"><input type="radio" name="q10" value="B"> B) «Әдістемелік кеңес», «Сараптама тобы», «Құжат айналымы»</label>
+                <label class="option"><input type="radio" name="q10" value="C"> C) «Бақылау орталығы», «Талдау кабинеті», «Есеп беру күні»</label>
+                <label class="option"><input type="radio" name="q10" value="D"> D) «Пәндік мониторинг», «Кесте апталығы», «Тексеру тобы»</label>
+                <label class="option"><input type="radio" name="q10" value="E"> E) «Ата-аналар мектебі», «Әжелер мектебі», «Әкелер мектебі»</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: E.</strong>
+                Құжатта білім беру ұйымдары «Ата-аналар мектебі», «Әжелер мектебі», «Әкелер мектебі», «Аналар мектебі» бастамаларын іске асырып жатқаны көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 6-бет.</div>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button class="btn btn-primary" onclick="checkQuiz('quiz-1')">Нәтижені көрсету</button>
+              <button class="btn btn-soft" onclick="resetQuiz('quiz-1')">Қайта белгілеу</button>
+            </div>
+            <div class="result-box" id="result-quiz-1"></div>
+          </div>
+
+          <div class="quiz-card" data-quiz="quiz-2">
+            <div class="quiz-title">
+              <h3>Тест 2. Патриоттық тәрбие, оқу мәдениеті және қосымша білім</h3>
+              <span class="quiz-count">10 сұрақ</span>
+            </div>
+
+            <div class="question" data-answer="B">
+              <h4>1. Құжат бойынша тәрбие процесінің аса маңызды құрамдас бөлігі ретінде не көрсетілген?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q11" value="A"> A) пәндік бақылау жүйесін кеңейту</label>
+                <label class="option"><input type="radio" name="q11" value="B"> B) патриоттық сезімдерді қалыптастыру және дамыту</label>
+                <label class="option"><input type="radio" name="q11" value="C"> C) есептік құжаттарды стандарттау</label>
+                <label class="option"><input type="radio" name="q11" value="D"> D) оқу жүктемесін әкімшілік бөлу</label>
+                <label class="option"><input type="radio" name="q11" value="E"> E) материалдық қорларды тіркеу</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: B.</strong>
+                Құжатта патриоттық сезімдерді қалыптастыру және дамыту тәрбие процесінің аса маңызды құрамдас бөлігі деп көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 6-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <h4>2. Әскери-патриоттық тәрбие құжатта қандай тәрбиемен тығыз байланысты деп берілген?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q12" value="A"> A) эстетикалық тәрбие берумен</label>
+                <label class="option"><input type="radio" name="q12" value="B"> B) экологиялық тәрбие берумен</label>
+                <label class="option"><input type="radio" name="q12" value="C"> C) еңбек тәрбиесін ұйымдастырумен</label>
+                <label class="option"><input type="radio" name="q12" value="D"> D) патриотизмге тәрбиелеумен</label>
+                <label class="option"><input type="radio" name="q12" value="E"> E) құқықтық тәрбие жүргізумен</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: D.</strong>
+                Құжатта әскери-патриоттық тәрбие патриотизмге тәрбиелеумен тығыз байланысты екені жазылған.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 6-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="A">
+              <h4>3. Белсенді азаматтық ұстанымды қалыптастыру мақсатында білім алушылар қандай қозғалыстарға қамтылады?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q13" value="A"> A) қоғамдық маңызы бар қозғалыстарға</label>
+                <label class="option"><input type="radio" name="q13" value="B"> B) тек пәндік бақылау қозғалыстарына</label>
+                <label class="option"><input type="radio" name="q13" value="C"> C) тек әкімшілік есеп қозғалыстарына</label>
+                <label class="option"><input type="radio" name="q13" value="D"> D) техникалық түгендеу қозғалыстарына</label>
+                <label class="option"><input type="radio" name="q13" value="E"> E) қаржылық жоспарлау қозғалыстарына</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: A.</strong>
+                Құжатта белсенді азаматтық ұстанымды қалыптастыру үшін білім алушыларды қоғамдық маңызы бар қозғалыстарға қамту кеңейіп жатқаны айтылған.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 6-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <h4>4. Білім алушыларды тарту бағыттары ретінде құжатта қандай ұйымдар мен қозғалыстар аталады?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q14" value="A"> A) есеп комиссиялары, рейтинг топтары, бақылау бөлімдері</label>
+                <label class="option"><input type="radio" name="q14" value="B"> B) тек пән бірлестіктері, әдістемелік топтар, оқу кабинеттері</label>
+                <label class="option"><input type="radio" name="q14" value="C"> C) дебат қозғалыстары, өзін-өзі басқару, әскери-патриоттық клубтар</label>
+                <label class="option"><input type="radio" name="q14" value="D"> D) құжат кеңестері, жоспар топтары, техникалық қызметтер</label>
+                <label class="option"><input type="radio" name="q14" value="E"> E) бақылау актілері, сараптама бөлімдері, есептік жобалар</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: C.</strong>
+                Құжатта білім алушылар дебаттық қозғалыстарға, мектептегі және студенттік өзін-өзі басқаруға, әскери-патриоттық клубтарға және балалар-жасөспірімдер қозғалыстарына тартылатыны көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 6-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="E">
+              <h4>5. Идеологиялық тәрбие құжатта қандай бағытты қалыптастыру ретінде сипатталады?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q15" value="A"> A) адамның оқу кабинетін жабдықтауға қатысуын анықтайтын бағытты</label>
+                <label class="option"><input type="radio" name="q15" value="B"> B) адамның есептік құжаттарды жүргізуін анықтайтын бағытты</label>
+                <label class="option"><input type="radio" name="q15" value="C"> C) адамның сабақ кестесін орындауын анықтайтын бағытты</label>
+                <label class="option"><input type="radio" name="q15" value="D"> D) адамның бақылау нәтижесін тіркеуін анықтайтын бағытты</label>
+                <label class="option"><input type="radio" name="q15" value="E"> E) адамның мәдени және ғылыми мұраға қатысуын анықтайтын бағытты</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: E.</strong>
+                Құжатта идеологиялық тәрбие адамның болып жатқан оқиғаларға, мәдени және ғылыми мұраға, тарихи жетістіктерге қатысуын анықтайтын бағытты қалыптастыру ретінде сипатталады.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 6-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="B">
+              <h4>6. «Оқуға құштар мектеп» жобасы қандай мәселеге жауап ретінде іске қосылды?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q16" value="A"> A) пәндік кабинеттердің артық болуына</label>
+                <label class="option"><input type="radio" name="q16" value="B"> B) оқу сауаттылығының төмен деңгейіне</label>
+                <label class="option"><input type="radio" name="q16" value="C"> C) мұғалімдердің жүктемесінің азаюына</label>
+                <label class="option"><input type="radio" name="q16" value="D"> D) спорт секцияларының көбеюіне</label>
+                <label class="option"><input type="radio" name="q16" value="E"> E) техникалық құралдардың артуына</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: B.</strong>
+                Құжатта «Оқуға құштар мектеп» жобасы білім алушылардың оқу сауаттылығының төмен деңгейіне жауап болатыны көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 7-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <h4>7. PISA-2018 нәтижелері бойынша Қазақстан оқу сауаттылығы жағынан ЭЫДҰ елдерінің орташа көрсеткішінен қанша балға артта қалған?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q17" value="A"> A) 40 балға</label>
+                <label class="option"><input type="radio" name="q17" value="B"> B) 60 балға</label>
+                <label class="option"><input type="radio" name="q17" value="C"> C) 80 балға</label>
+                <label class="option"><input type="radio" name="q17" value="D"> D) 100 балға</label>
+                <label class="option"><input type="radio" name="q17" value="E"> E) 120 балға</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: D.</strong>
+                Құжатта PISA-2018 нәтижелері бойынша Қазақстан оқу сауаттылығы бойынша ЭЫДҰ елдерінің орташа көрсеткішінен 100 балға артта қалғаны айтылған.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 7-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="A">
+              <h4>8. Мектеп кітапханаларының мазмұны мен инфрақұрылымын дамытудағы арнайы жобаның негізгі бағыты қандай?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q18" value="A"> A) балалардың кітап оқуға қызығушылығын арттыру және оқу сауаттылығын қалыптастыру</label>
+                <label class="option"><input type="radio" name="q18" value="B"> B) кітапхана құжаттарын қысқарту және есеп нысандарын біріздендіру</label>
+                <label class="option"><input type="radio" name="q18" value="C"> C) кітапхана ғимараттарын тек техникалық бақылауға бейімдеу</label>
+                <label class="option"><input type="radio" name="q18" value="D"> D) оқу қорларын тек әкімшілік қажеттілікке қарай бөлу</label>
+                <label class="option"><input type="radio" name="q18" value="E"> E) кітап қорын тек статистикалық көрсеткіш ретінде тіркеу</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: A.</strong>
+                Арнайы жоба кітапханалардың мазмұны мен инфрақұрылымын дамытуға, балалардың кітап оқуға қызығушылығын арттыруға және оқу сауаттылығын қалыптастыруға бағытталған.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 7-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <h4>9. Құжатта қосымша білім беру арқылы балалардың қандай мүмкіндігі дамытылады?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q19" value="A"> A) есептік құжаттарды толтыру бойынша мүмкіндігі</label>
+                <label class="option"><input type="radio" name="q19" value="B"> B) оқу жүктемесін бөлу бойынша мүмкіндігі</label>
+                <label class="option"><input type="radio" name="q19" value="C"> C) қызығушылықтары бойынша қабілеттерін дамыту мүмкіндігі</label>
+                <label class="option"><input type="radio" name="q19" value="D"> D) әкімшілік бақылауға қатысу мүмкіндігі</label>
+                <label class="option"><input type="radio" name="q19" value="E"> E) техникалық есеп жүргізу мүмкіндігі</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: C.</strong>
+                Құжат құрылымында қосымша білім беру баланың қызығушылықтары бойынша қабілеттерін дамыту бағыты ретінде берілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 2-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="E">
+              <h4>10. Дене тәрбиесі құжатта қандай негіз ретінде сипатталған?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q20" value="A"> A) пәндік бақылаудың негізгі өлшемі</label>
+                <label class="option"><input type="radio" name="q20" value="B"> B) әкімшілік есептің басты құралы</label>
+                <label class="option"><input type="radio" name="q20" value="C"> C) оқу кабинеттерін бөлудің шарты</label>
+                <label class="option"><input type="radio" name="q20" value="D"> D) мектеп құжаттарын жүргізудің тәсілі</label>
+                <label class="option"><input type="radio" name="q20" value="E"> E) өмір бойғы дене белсенділігінің негізі</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: E.</strong>
+                Құжатта дене тәрбиесі өмір бойғы дене белсенділігінің негізі ретінде көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 10-бет.</div>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button class="btn btn-primary" onclick="checkQuiz('quiz-2')">Нәтижені көрсету</button>
+              <button class="btn btn-soft" onclick="resetQuiz('quiz-2')">Қайта белгілеу</button>
+            </div>
+            <div class="result-box" id="result-quiz-2"></div>
+          </div>
+                    <div class="quiz-card" data-quiz="quiz-3">
+            <div class="quiz-title">
+              <h3>Тест 3. Тәрбие жұмысындағы өзекті проблемалар</h3>
+              <span class="quiz-count">10 сұрақ</span>
+            </div>
+
+            <div class="question" data-answer="C">
+              <h4>1. Құжатта білім беру ұйымдарының тәрбие жұмысындағы проблема ретінде не көрсетілген?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q21" value="A"> A) ұлттық құндылықтарды дәріптеудің толық аяқталуы</label>
+                <label class="option"><input type="radio" name="q21" value="B"> B) ұлттық құндылықтарды бағалаудың артық болуы</label>
+                <label class="option"><input type="radio" name="q21" value="C"> C) ұлттық құндылықтарды дәріптеудің жеткіліксіздігі</label>
+                <label class="option"><input type="radio" name="q21" value="D"> D) ұлттық құндылықтарды оқытудан алып тастау</label>
+                <label class="option"><input type="radio" name="q21" value="E"> E) ұлттық құндылықтарды тек есепке енгізу</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: C.</strong>
+                Құжатта тәрбие жұмысындағы проблемалардың бірі ретінде ұлттық құндылықтарды қалыптастыру мен сақтаудың маңыздылығын дәріптеудің жеткіліксіздігі аталған.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 11-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="A">
+              <h4>2. Оқу-тәрбие процесіндегі педагогикалық өзара іс-қимылға қатысты қандай мәселе көрсетілген?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q22" value="A"> A) пән мұғалімдері мен сынып жетекшілерінің ынтымақтастық деңгейінің төмендігі</label>
+                <label class="option"><input type="radio" name="q22" value="B"> B) пән мұғалімдері мен сынып жетекшілерінің ынтымақтастық деңгейінің артықтығы</label>
+                <label class="option"><input type="radio" name="q22" value="C"> C) пән мұғалімдері мен сынып жетекшілерінің құжаттық міндетінің аздығы</label>
+                <label class="option"><input type="radio" name="q22" value="D"> D) пән мұғалімдері мен сынып жетекшілерінің оқу жүктемесінің бірдейлігі</label>
+                <label class="option"><input type="radio" name="q22" value="E"> E) пән мұғалімдері мен сынып жетекшілерінің бақылау жұмысына қатыспауы</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: A.</strong>
+                Құжатта оқу-тәрбие процесінде пән мұғалімдері мен сынып жетекшілерінің педагогикалық өзара іс-қимылы мен ынтымақтастығы төмен екені проблема ретінде көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 11-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <h4>3. Ата-аналармен жұмысқа қатысты құжатта қандай проблема аталған?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q23" value="A"> A) ата-аналар жиналысының тым жиі өткізілуі</label>
+                <label class="option"><input type="radio" name="q23" value="B"> B) ата-аналар жиналысының толық тоқтатылуы</label>
+                <label class="option"><input type="radio" name="q23" value="C"> C) ата-аналар жиналысының тек онлайн болуы</label>
+                <label class="option"><input type="radio" name="q23" value="D"> D) ата-аналар жиналысын өткізудің ескірген форматы</label>
+                <label class="option"><input type="radio" name="q23" value="E"> E) ата-аналар жиналысын есептен алып тастау</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: D.</strong>
+                Құжатта ата-аналар жиналысын өткізудің ескірген форматы тәрбие жұмысындағы проблемалардың бірі ретінде берілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 11-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="B">
+              <h4>4. Білім алушыларды идеологиялық тәрбиелеуге қатысты қандай мәселе көрсетілген?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q24" value="A"> A) идеологиялық тәрбиелеу деңгейінің шамадан тыс артуы</label>
+                <label class="option"><input type="radio" name="q24" value="B"> B) идеологиялық тәрбиелеу деңгейінің төмендігі</label>
+                <label class="option"><input type="radio" name="q24" value="C"> C) идеологиялық тәрбиелеудің тек жоғары мектепке берілуі</label>
+                <label class="option"><input type="radio" name="q24" value="D"> D) идеологиялық тәрбиелеудің тек пәндік бақылаумен шектелуі</label>
+                <label class="option"><input type="radio" name="q24" value="E"> E) идеологиялық тәрбиелеудің құжат айналымына ауысуы</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: B.</strong>
+                Құжатта білім алушыларды идеологиялық тәрбиелеу деңгейінің төмендігі өзекті проблема ретінде көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 11-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="E">
+              <h4>5. Қосымша білім беруге қолжетімділікке қатысты қандай проблема берілген?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q25" value="A"> A) мектептен тыс ұйымдардың барлық жерде шамадан тыс көбеюі</label>
+                <label class="option"><input type="radio" name="q25" value="B"> B) мектептен тыс ұйымдардың тек қала мектептерінде артық болуы</label>
+                <label class="option"><input type="radio" name="q25" value="C"> C) мектептен тыс ұйымдардың оқушыларға толық қажет болмауы</label>
+                <label class="option"><input type="radio" name="q25" value="D"> D) мектептен тыс ұйымдардың пәндік сабақтармен алмастырылуы</label>
+                <label class="option"><input type="radio" name="q25" value="E"> E) тегін үйірмелерге жақын қолжетімді мектептен тыс ұйымдардың жеткіліксіздігі</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: E.</strong>
+                Құжатта балалардың тұратын жерінен және тегін мектеп үйірмелерінен қадамдық қолжетімділіктегі мектептен тыс ұйымдар саны жеткіліксіз екені көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 11-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="A">
+              <h4>6. Ерекше білім беруді қажет ететін балаларға қатысты қосымша білім беру ұйымдарында қандай проблема бар?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q26" value="A"> A) кедергісіз жағдайлардың болмауы</label>
+                <label class="option"><input type="radio" name="q26" value="B"> B) пәндік жоспарлардың көбейіп кетуі</label>
+                <label class="option"><input type="radio" name="q26" value="C"> C) оқу кабинеттерінің артық болуы</label>
+                <label class="option"><input type="radio" name="q26" value="D"> D) сабақ кестесінің тым қысқа болуы</label>
+                <label class="option"><input type="radio" name="q26" value="E"> E) бақылау парақтарының аз болуы</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: A.</strong>
+                Құжатта қосымша білім беру ұйымдарының басым көпшілігінде кедергісіз жағдайлардың болмауы проблема ретінде аталған.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 11-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <h4>7. Қосымша білім беру педагогтеріне қатысты қандай кадрлық мәселе көрсетілген?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q27" value="A"> A) білікті педагогтер санының толық жеткіліктілігі</label>
+                <label class="option"><input type="radio" name="q27" value="B"> B) жас мамандарға сұраныстың толық тоқтауы</label>
+                <label class="option"><input type="radio" name="q27" value="C"> C) білікті педагогтерге, әсіресе жас мамандарға сұраныстың артуы</label>
+                <label class="option"><input type="radio" name="q27" value="D"> D) қосымша білім беру педагогтерінің тек есепке алынуы</label>
+                <label class="option"><input type="radio" name="q27" value="E"> E) педагогтердің тәрбие жұмысына мүлде қатыспауы</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: C.</strong>
+                Құжатта қосымша білім берудің білікті педагогтеріне, әсіресе жас мамандарға сұраныстың артуы тәрбие жұмысындағы проблема ретінде көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 11-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <h4>8. Қосымша білім беру бағдарламалары бойынша қандай бағыттардың жеткіліксіздігі аталған?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q28" value="A"> A) музыкалық және көркемдік бағыттардың</label>
+                <label class="option"><input type="radio" name="q28" value="B"> B) спорттық және мәдени бағыттардың</label>
+                <label class="option"><input type="radio" name="q28" value="C"> C) ұйымдастырушылық және есептік бағыттардың</label>
+                <label class="option"><input type="radio" name="q28" value="D"> D) техникалық және жаратылыстану-ғылыми бағыттардың</label>
+                <label class="option"><input type="radio" name="q28" value="E"> E) әкімшілік және бақылау бағыттарының</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: D.</strong>
+                Құжатта техникалық және жаратылыстану-ғылыми бағыттар бойынша қосымша білім беру бағдарламаларының жеткіліксіздігі көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 11-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="B">
+              <h4>9. Дене тәрбиесі пәндерін оқытуға қатысты қандай мәселе берілген?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q29" value="A"> A) оқытудың әдістемелік деңгейінің толық жеткіліктілігі</label>
+                <label class="option"><input type="radio" name="q29" value="B"> B) оқытудың әдістемелік деңгейінің жеткіліксіздігі</label>
+                <label class="option"><input type="radio" name="q29" value="C"> C) оқытудың әдістемелік деңгейінің артық болуы</label>
+                <label class="option"><input type="radio" name="q29" value="D"> D) оқытудың әдістемелік деңгейінің тек есеппен шектелуі</label>
+                <label class="option"><input type="radio" name="q29" value="E"> E) оқытудың әдістемелік деңгейінің пәннен тыс болуы</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: B.</strong>
+                Құжатта мектепте «Дене шынықтыру» және ТжКБ мен жоғары оқу орындарында «Дене тәрбиесі» пәндерін оқытудың әдістемелік деңгейінің жеткіліксіздігі көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 11-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="E">
+              <h4>10. Мектептердегі дене шынықтыруды қамтамасыз етуге қатысты қандай материалдық проблема аталған?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q30" value="A"> A) спорт залдарының толық жаңартылуы</label>
+                <label class="option"><input type="radio" name="q30" value="B"> B) спорт залдарының шамадан тыс көп болуы</label>
+                <label class="option"><input type="radio" name="q30" value="C"> C) спорт залдарының тек қалалық жерлерде артуы</label>
+                <label class="option"><input type="radio" name="q30" value="D"> D) спорт залдарының есептен шығарылуы</label>
+                <label class="option"><input type="radio" name="q30" value="E"> E) спорт залдарының жеткіліксіздігі</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: E.</strong>
+                Құжатта мектептерде 3 сағаттық дене шынықтырумен қамтамасыз ету үшін спорт залдарының жеткіліксіздігі проблема ретінде көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 11-бет.</div>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button class="btn btn-primary" onclick="checkQuiz('quiz-3')">Нәтижені көрсету</button>
+              <button class="btn btn-soft" onclick="resetQuiz('quiz-3')">Қайта белгілеу</button>
+            </div>
+            <div class="result-box" id="result-quiz-3"></div>
+          </div>
+        </section>
+
+        <section id="chapter-2" class="chapter-section" style="display:none;">
+          <div class="chapter-card">
+            <div class="chapter-header">
+              <h2>2-бөлім. Ағымдағы жағдайды талдау</h2>
+              <p>2-тарау. Балалардың құқықтары мен мүдделерін қорғау</p>
+            </div>
+
+            <div class="important">
+              <h3>Маңызды тұстар</h3>
+              <ul>
+                <li>Балалардың қауіпсіздігі, құқықтары мен мүдделерін қорғау мемлекеттік саясаттың маңызды бағыты ретінде қарастырылады.</li>
+                <li>Жетім және ата-анасының қамқорлығынсыз қалған балаларды отбасына орналастыру тетіктері көрсетіледі.</li>
+                <li>Мектептегі психологиялық қызмет, қауіпсіздік жүйелері, тасымалдау және әлеуметтік қолдау мәселелері талданады.</li>
+                <li>Әлеуметтік педагог баланың білім алу құқығын іске асыруда және көмекке мұқтаждарды анықтауда ерекше рөл атқарады.</li>
+              </ul>
+            </div>
+
+            <div class="match-box">
+              <h3>Спецификациямен сәйкестігі</h3>
+              <div class="tag-list">
+                <span class="tag">Тұлғаның дамуы мен қалыптасуы</span>
+                <span class="tag">Тұтас педагогикалық үдерістегі тәрбие</span>
+                <span class="tag">Білім берудің әлеуметтік мәні</span>
+                <span class="tag">Педагогикалық үдеріс субъектілері</span>
+                <span class="tag">Қазіргі білім беру жүйесі</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-card" data-quiz="quiz-4">
+            <div class="quiz-title">
+              <h3>Тест 4. Балалардың құқықтары мен мүдделерін қорғау</h3>
+              <span class="quiz-count">10 сұрақ</span>
+            </div>
+
+            <div class="question" data-answer="A">
+              <h4>1. Құжатта балалардың қауіпсіздігі мен құқықтарын қорғау мәселесіне ерекше назар аудару қажеттігі кімнің Жолдауымен байланыстырылған?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q31" value="A"> A) ҚР Президенті Қ.К. Тоқаевтың Жолдауымен</label>
+                <label class="option"><input type="radio" name="q31" value="B"> B) мектеп директорының жылдық есебімен</label>
+                <label class="option"><input type="radio" name="q31" value="C"> C) сынып жетекшісінің тәрбие жоспарымен</label>
+                <label class="option"><input type="radio" name="q31" value="D"> D) пән мұғалімінің әдістемелік ұсынысымен</label>
+                <label class="option"><input type="radio" name="q31" value="E"> E) ата-аналар кеңесінің ішкі шешімімен</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: A.</strong>
+                Құжатта балалардың қауіпсіздігі мен құқықтарын қорғау мәселесіне ерекше назар аудару қажеттігі ҚР Президенті Қ.К. Тоқаевтың 2020 жылғы Жолдауымен байланыстырылған.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 12-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <h4>2. Құжат бойынша жетім және ата-анасының қамқорлығынсыз қалған балалардың құқықтары мен мүдделерін қорғаудың негізгі жолдарының бірі қандай?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q32" value="A"> A) оларды пәндік бақылау тізіміне енгізу</label>
+                <label class="option"><input type="radio" name="q32" value="B"> B) оларды мектепішілік есеппен ғана шектеу</label>
+                <label class="option"><input type="radio" name="q32" value="C"> C) оларды тек арнайы сабақтарға бөлу</label>
+                <label class="option"><input type="radio" name="q32" value="D"> D) оларды отбасына тәрбиелеуге беру</label>
+                <label class="option"><input type="radio" name="q32" value="E"> E) оларды оқу процесінен уақытша шығару</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: D.</strong>
+                Құжатта жетім және ата-анасының қамқорлығынсыз қалған балалардың құқықтары мен мүдделері оларды отбасына тәрбиелеуге беру арқылы қорғалатыны көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 12-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="B">
+              <h4>3. Баланы отбасына тәрбиелеуге беру мүмкін болмаған жағдайда қандай шешім қарастырылады?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q33" value="A"> A) баланы оқу жоспарынан толық босату</label>
+                <label class="option"><input type="radio" name="q33" value="B"> B) баланы жетім балаларға арналған ұйымдарға беру</label>
+                <label class="option"><input type="radio" name="q33" value="C"> C) баланы тек қашықтан оқытуға ауыстыру</label>
+                <label class="option"><input type="radio" name="q33" value="D"> D) баланы тек бақылау есебіне тіркеу</label>
+                <label class="option"><input type="radio" name="q33" value="E"> E) баланы қосымша білімнен шектеу</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: B.</strong>
+                Егер баланы отбасына тәрбиелеуге беру мүмкін болмаса, оны жетім балаларға және ата-анасының қамқорлығынсыз қалған балаларға арналған ұйымдарға беру қарастырылады.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 12-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="E">
+              <h4>4. Құжатта педагог-психологтарға қатысты қандай жүктеме мәселесі көрсетілген?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q34" value="A"> A) бір педагог-психологқа жүктеменің толық жойылуы</label>
+                <label class="option"><input type="radio" name="q34" value="B"> B) бір педагог-психологқа жүктеменің тек 45 оқушы болуы</label>
+                <label class="option"><input type="radio" name="q34" value="C"> C) бір педагог-психологқа жүктеменің тек мұғалімдерден тұруы</label>
+                <label class="option"><input type="radio" name="q34" value="D"> D) бір педагог-психологқа жүктеменің тек ата-аналармен шектелуі</label>
+                <label class="option"><input type="radio" name="q34" value="E"> E) бір педагог-психологқа жүктеменің 455 оқушыны құрауы</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: E.</strong>
+                Құжатта республика бойынша бір педагог-психологқа жүктеме 455 оқушыны құрайтыны, кейбір мектептерде 1000-нан асатыны көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 12–13-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <h4>5. Мектептерде зорлық-зомбылықтың алдын алу және білім алушылардың хабардарлығын арттыру мақсатында қандай бағдарламалар іске асырылуда?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q35" value="A"> A) құжат айналымын жеделдету және есепті қысқарту бағдарламалары</label>
+                <label class="option"><input type="radio" name="q35" value="B"> B) пәндік бақылауды күшейту және рейтинг жасау бағдарламалары</label>
+                <label class="option"><input type="radio" name="q35" value="C"> C) өмірлік дағдыларды қалыптастыру және суицидтің алдын алу бағдарламалары</label>
+                <label class="option"><input type="radio" name="q35" value="D"> D) сабақ кестесін өзгерту және кабинеттерді бөлу бағдарламалары</label>
+                <label class="option"><input type="radio" name="q35" value="E"> E) әкімшілік тексерісті арттыру және есеп беруді көбейту бағдарламалары</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: C.</strong>
+                Құжатта мектептерде өмірлік дағдыларды қалыптастыру және суицидтің алдын алу бойынша бағдарламалар іске асырылып жатқаны көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 13-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="A">
+              <h4>6. Құжат бойынша білім беру ұйымдары төтенше жағдайлардың алдын алу мақсатында немен жабдықталған?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q36" value="A"> A) бейнебақылау жүйелерімен</label>
+                <label class="option"><input type="radio" name="q36" value="B"> B) тек пәндік журналдармен</label>
+                <label class="option"><input type="radio" name="q36" value="C"> C) тек әдістемелік дәптерлермен</label>
+                <label class="option"><input type="radio" name="q36" value="D"> D) тек оқу кестелерімен</label>
+                <label class="option"><input type="radio" name="q36" value="E"> E) тек бақылау парақтарымен</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: A.</strong>
+                Құжатта білім беру ұйымдары меншік нысанына қарамастан 100% бейнебақылау жүйелерімен жабдықталғаны айтылған.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 13-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <h4>7. Жалпыға бірдей білім беру қоры қандай балаларды қолдауға арналған?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q37" value="A"> A) тек олимпиада жеңімпаздарын қолдауға</label>
+                <label class="option"><input type="radio" name="q37" value="B"> B) тек спорт секциясына қатысатындарды қолдауға</label>
+                <label class="option"><input type="radio" name="q37" value="C"> C) тек қала мектептерінде оқитындарды қолдауға</label>
+                <label class="option"><input type="radio" name="q37" value="D"> D) әлеуметтік көмекке мұқтаж отбасылардан шыққан балаларды қолдауға</label>
+                <label class="option"><input type="radio" name="q37" value="E"> E) тек жоғары сынып оқушыларын қолдауға</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: D.</strong>
+                Жалпыға бірдей білім беру қоры мемлекеттік атаулы әлеуметтік көмек алатын, табысы төмен немесе төтенше жағдайда шұғыл көмек қажет ететін отбасылардан шыққан балаларды қолдауға арналған.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 13-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="B">
+              <h4>8. Мектепте әлеуметтік педагогтің ерекше рөлі қалай сипатталады?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q38" value="A"> A) оқу кестесін өзгертіп, пән сағатын қысқартуымен</label>
+                <label class="option"><input type="radio" name="q38" value="B"> B) көмекке мұқтаждарды анықтап, баланың білім алу құқығын іске асыруымен</label>
+                <label class="option"><input type="radio" name="q38" value="C"> C) әкімшілік есептерді жинап, бақылау журналын толтыруымен</label>
+                <label class="option"><input type="radio" name="q38" value="D"> D) спорт секцияларын бөліп, материалдық қорды есептеуімен</label>
+                <label class="option"><input type="radio" name="q38" value="E"> E) пәндік кабинеттерді бекітіп, сабақ кестесін реттеуімен</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: B.</strong>
+                Құжатта әлеуметтік педагогтер көмекке мұқтаждарды тез анықтайтыны, проблемаларды шешуде демеу болатыны және баланың білім алу құқығын іске асыратыны көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 14-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="E">
+              <h4>9. Балалардың құқықтары мен мүдделерін қорғаудағы проблема ретінде қандай қауіпсіздік мәселесі көрсетілген?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q39" value="A"> A) бейнебақылау жүйелерінің артық стандартталуы</label>
+                <label class="option"><input type="radio" name="q39" value="B"> B) бейнебақылау жүйелерінің оқу мазмұнын алмастыруы</label>
+                <label class="option"><input type="radio" name="q39" value="C"> C) бейнебақылау жүйелерінің тек мұғалімдерге арналуы</label>
+                <label class="option"><input type="radio" name="q39" value="D"> D) бейнебақылау жүйелерінің толық қажет болмауы</label>
+                <label class="option"><input type="radio" name="q39" value="E"> E) бейнебақылау жүйелерінің бекітілген стандарттарға сәйкес келмеуі</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: E.</strong>
+                Құжатта білім беру ұйымдарындағы бейнебақылау жүйелерінің бекітілген стандарттарға сәйкес келмеуі проблема ретінде көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 14-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <h4>10. 1–4 сынып оқушыларын тегін ыстық тамақпен қамтамасыз етуге қатысты қандай проблема көрсетілген?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q40" value="A"> A) барлық өңірде қаржыландырудың толық жеткілікті болуы</label>
+                <label class="option"><input type="radio" name="q40" value="B"> B) тегін ыстық тамақтың тек жоғары сыныптарға берілуі</label>
+                <label class="option"><input type="radio" name="q40" value="C"> C) республиканың 12 өңірінде қаржыландырудың жоқтығы</label>
+                <label class="option"><input type="radio" name="q40" value="D"> D) ыстық тамақтың тек спорт секцияларымен байланыстырылуы</label>
+                <label class="option"><input type="radio" name="q40" value="E"> E) бастауыш сыныптарда тамақтандырудың толық тоқтатылуы</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: C.</strong>
+                Құжатта республиканың 12 өңірінде 1–4 сыныптардың барлық оқушыларын тегін ыстық тамақпен қамтамасыз етуге қаржыландырудың жоқтығы проблема ретінде көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 14-бет.</div>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button class="btn btn-primary" onclick="checkQuiz('quiz-4')">Нәтижені көрсету</button>
+              <button class="btn btn-soft" onclick="resetQuiz('quiz-4')">Қайта белгілеу</button>
+            </div>
+            <div class="result-box" id="result-quiz-4"></div>
+          </div>
+        </section>
+                <section id="chapter-3" class="chapter-section" style="display:none;">
+          <div class="chapter-card">
+            <div class="chapter-header">
+              <h2>2-бөлім. Ағымдағы жағдайды талдау</h2>
+              <p>3-тарау. Педагог мәртебесі</p>
+            </div>
+
+            <div class="important">
+              <h3>Маңызды тұстар</h3>
+              <ul>
+                <li>«Педагог мәртебесі туралы» Заң педагогтерге қолайлы жағдай жасауға және кәсіби өсуді ынталандыруға бағытталған.</li>
+                <li>Педагогтің кәсіби өсуі біліктілік санаттары, аттестаттау, қосымша ақы және тәлімгерлік жүйесімен байланыстырылады.</li>
+                <li>Жас педагогтерді қолдау, педагогикалық мамандықтарға сапалы іріктеу және педагогикалық білім беруді жаңғырту маңызды мәселе ретінде қарастырылады.</li>
+                <li>Ауылдық жерлердегі педагогтердің біліктілік айырмашылығы, кадр тапшылығы және кәсіби даму қажеттілігі ерекше көрсетілген.</li>
+              </ul>
+            </div>
+
+            <div class="match-box">
+              <h3>Спецификациямен сәйкестігі</h3>
+              <div class="tag-list">
+                <span class="tag">Педагогикалық кәсіп пен іс-әрекет</span>
+                <span class="tag">Педагогтың тұлғасы және құзыреттілігі</span>
+                <span class="tag">Педагогтың үздіксіз кәсіби өсуі</span>
+                <span class="tag">Қазіргі білім беру жүйесі</span>
+                <span class="tag">Педагогикалық шеберлік</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-card" data-quiz="quiz-5">
+            <div class="quiz-title">
+              <h3>Тест 5. Педагог мәртебесі және кәсіби өсу жүйесі</h3>
+              <span class="quiz-count">10 сұрақ</span>
+            </div>
+
+            <div class="question" data-answer="B">
+              <h4>1. Құжат бойынша 2019 жылы қабылданған «Педагог мәртебесі туралы» Заң қандай мүмкіндік берді?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q41" value="A"> A) педагогтердің құжаттық жүктемесін толық арттыруға</label>
+                <label class="option"><input type="radio" name="q41" value="B"> B) педагогтерге қолайлы жағдай жасау және кәсіби өсуді ынталандыру шараларын іске асыруға</label>
+                <label class="option"><input type="radio" name="q41" value="C"> C) педагогтердің кәсіби санаттарын толық алып тастауға</label>
+                <label class="option"><input type="radio" name="q41" value="D"> D) педагогикалық білім беруді тек әкімшілік бақылаумен шектеуге</label>
+                <label class="option"><input type="radio" name="q41" value="E"> E) педагог еңбегін тек есептік көрсеткіш арқылы бағалауға</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: B.</strong>
+                Құжатта 2019 жылы қабылданған заң педагогтер үшін қолайлы жағдай жасау және олардың кәсіби өсуін ынталандыру бойынша жүйелі шаралар кешенін іске асыруға мүмкіндік бергені айтылған.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 15-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <h4>2. Педагогтің кәсіби өсуінің жаңа жүйесінде жалақы қандай санаттарға байланысты ұлғайды?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q42" value="A"> A) жетекші, ұйымдастырушы, бақылаушы, сарапшы, әкімші</label>
+                <label class="option"><input type="radio" name="q42" value="B"> B) мұғалім, әдіскер, куратор, жетекші, бақылаушы</label>
+                <label class="option"><input type="radio" name="q42" value="C"> C) тәрбиеші, кеңесші, үйлестіруші, сарапшы, жетекші</label>
+                <label class="option"><input type="radio" name="q42" value="D"> D) педагог, педагог-модератор, педагог-сарапшы, педагог-зерттеуші, педагог-шебер</label>
+                <label class="option"><input type="radio" name="q42" value="E"> E) оқытушы, тәлімгер, бақылаушы, үйлестіруші, хатшы</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: D.</strong>
+                Құжатта жалақы педагог, педагог-модератор, педагог-сарапшы, педагог-зерттеуші және педагог-шебер санаттары бойынша ұлғайғаны көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 15-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="A">
+              <h4>3. «Педагог мәртебесі туралы» Заң аясында тәрбиешілердің құқығы қандай мамандармен теңестірілді?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q43" value="A"> A) мұғалімдермен</label>
+                <label class="option"><input type="radio" name="q43" value="B"> B) әдіскерлермен</label>
+                <label class="option"><input type="radio" name="q43" value="C"> C) психологтармен</label>
+                <label class="option"><input type="radio" name="q43" value="D"> D) тәлімгерлермен</label>
+                <label class="option"><input type="radio" name="q43" value="E"> E) сарапшылармен</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: A.</strong>
+                Құжатта «Педагог мәртебесі туралы» Заң аясында тәрбиешілердің құқығы мұғалімдермен теңестірілгені көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 15-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="E">
+              <h4>4. Құжатта педагогтерге енгізілген жаңа қосымша ақылар қатарына қайсысы жатады?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q44" value="A"> A) кабинет безендіру, есеп өткізу, журнал толтыру үшін</label>
+                <label class="option"><input type="radio" name="q44" value="B"> B) кезекшілік жасау, құжат жинау, кесте құру үшін</label>
+                <label class="option"><input type="radio" name="q44" value="C"> C) бақылау жүргізу, акт жазу, есеп сақтау үшін</label>
+                <label class="option"><input type="radio" name="q44" value="D"> D) жиналыс өткізу, хаттама жазу, тізім жасау үшін</label>
+                <label class="option"><input type="radio" name="q44" value="E"> E) тәлімгерлік, магистр дәрежесі және спорт секцияларын жүргізу үшін</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: E.</strong>
+                Құжатта тәлімгерлік, магистр дәрежесі және спорт секцияларын жүргізгені үшін жаңа қосымша ақылар енгізілгені көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 15-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <h4>5. 2021 жылдан бастап мектеп педагогтерінің жүктемесіне қатысты қандай өзгеріс жүзеге асырылды?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q45" value="A"> A) 20 сағаттық жүктемеден 18 сағаттық жүктемеге көшу</label>
+                <label class="option"><input type="radio" name="q45" value="B"> B) 24 сағаттық жүктемеден 20 сағаттық жүктемеге көшу</label>
+                <label class="option"><input type="radio" name="q45" value="C"> C) 18 сағаттық жүктемеден 16 сағаттық жүктемеге көшу</label>
+                <label class="option"><input type="radio" name="q45" value="D"> D) 16 сағаттық жүктемеден 14 сағаттық жүктемеге көшу</label>
+                <label class="option"><input type="radio" name="q45" value="E"> E) 14 сағаттық жүктемеден 12 сағаттық жүктемеге көшу</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: C.</strong>
+                Құжатта 2021 жылдан бастап мектеп педагогтерінің 18 сағаттық жүктемесінен 16 сағаттық жүктемеге көшу жүзеге асырылғаны көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 15-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="B">
+              <h4>6. Педагогикалық бейіндегі білім беру бағдарламаларына түсу үшін ҰБТ шекті балы қалай өзгертілді?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q46" value="A"> A) 40 балдан 60 балға дейін ұлғайтылды</label>
+                <label class="option"><input type="radio" name="q46" value="B"> B) 50 балдан 75 балға дейін ұлғайтылды</label>
+                <label class="option"><input type="radio" name="q46" value="C"> C) 60 балдан 80 балға дейін ұлғайтылды</label>
+                <label class="option"><input type="radio" name="q46" value="D"> D) 70 балдан 90 балға дейін ұлғайтылды</label>
+                <label class="option"><input type="radio" name="q46" value="E"> E) 80 балдан 100 балға дейін ұлғайтылды</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: B.</strong>
+                Дарынды жастарды тарту және сапалы іріктеу үшін педагогикалық бағыттарға түсу шекті балы 50-ден 75 балға дейін ұлғайтылған.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 15-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <h4>7. Педагогикалық бағыттар бойынша оқитын бакалаврларға стипендия қалай арттырылды?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q47" value="A"> A) 20 мыңнан 40 мың теңгеге дейін</label>
+                <label class="option"><input type="radio" name="q47" value="B"> B) 22 мыңнан 45 мың теңгеге дейін</label>
+                <label class="option"><input type="radio" name="q47" value="C"> C) 24 мыңнан 48 мың теңгеге дейін</label>
+                <label class="option"><input type="radio" name="q47" value="D"> D) 26 мыңнан 50 мың теңгеге дейін</label>
+                <label class="option"><input type="radio" name="q47" value="E"> E) 28 мыңнан 55 мың теңгеге дейін</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: D.</strong>
+                Құжатта педагогикалық бағыттар бойынша оқитын бакалаврларға стипендия 26 мыңнан 50 мың теңгеге дейін арттырылғаны көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 15–16-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="A">
+              <h4>8. Жаңадан бастаған педагогтерді қолдау үшін құжатта қандай институтты дамыту тетіктері көзделген?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q48" value="A"> A) тәлімгерлік институтын</label>
+                <label class="option"><input type="radio" name="q48" value="B"> B) бақылау институтын</label>
+                <label class="option"><input type="radio" name="q48" value="C"> C) есеп институтын</label>
+                <label class="option"><input type="radio" name="q48" value="D"> D) рейтинг институтын</label>
+                <label class="option"><input type="radio" name="q48" value="E"> E) құжат институтын</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: A.</strong>
+                Құжатта жаңадан бастаған педагогтерді қолдау үшін тәлімгерлік институтын дамыту тетіктері көзделгені көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 16-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="E">
+              <h4>9. «Үздік педагог» республикалық конкурсына жыл сайын қатысу құжатта қандай қолдау түрлерінің ұштасуы ретінде сипатталған?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q49" value="A"> A) әкімшілік және құжаттық көтермелеудің</label>
+                <label class="option"><input type="radio" name="q49" value="B"> B) бақылаулық және есептік көтермелеудің</label>
+                <label class="option"><input type="radio" name="q49" value="C"> C) пәндік және техникалық көтермелеудің</label>
+                <label class="option"><input type="radio" name="q49" value="D"> D) формалды және рәсімдік көтермелеудің</label>
+                <label class="option"><input type="radio" name="q49" value="E"> E) моральдық және материалдық көтермелеудің</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: E.</strong>
+                Құжатта «Үздік педагог» республикалық конкурсы үздік педагогтерді моральдық және материалдық көтермелеудің ұштасуы ретінде сипатталған.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 16-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <h4>10. Құжатта педагогикалық этика және педагогтердің құқықтарын қорғау бойынша қандай құрылымдар құрылғаны көрсетілген?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q50" value="A"> A) есептік бөлімдер</label>
+                <label class="option"><input type="radio" name="q50" value="B"> B) бақылау топтары</label>
+                <label class="option"><input type="radio" name="q50" value="C"> C) кеңестер</label>
+                <label class="option"><input type="radio" name="q50" value="D"> D) тізімдер</label>
+                <label class="option"><input type="radio" name="q50" value="E"> E) журналдар</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: C.</strong>
+                Құжатта педагогикалық этика және педагогтердің құқықтарын қорғау мәселелері бойынша кеңестер құрылғаны көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 16-бет.</div>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button class="btn btn-primary" onclick="checkQuiz('quiz-5')">Нәтижені көрсету</button>
+              <button class="btn btn-soft" onclick="resetQuiz('quiz-5')">Қайта белгілеу</button>
+            </div>
+            <div class="result-box" id="result-quiz-5"></div>
+          </div>
+
+          <div class="quiz-card" data-quiz="quiz-6">
+            <div class="quiz-title">
+              <h3>Тест 6. Педагог кадрлары, біліктілік және кәсіби даму мәселелері</h3>
+              <span class="quiz-count">10 сұрақ</span>
+            </div>
+
+            <div class="question" data-answer="B">
+              <h4>1. Мектепке дейінгі тәрбие мен оқыту жүйесінде арнайы кәсіптік даярлығы жоқ педагогтердің үлесі қандай проблема ретінде берілген?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q51" value="A"> A) педагогтердің құжаттық дайындығының артықтығы</label>
+                <label class="option"><input type="radio" name="q51" value="B"> B) кадрлық әлеуетті арттырудың өзектілігі</label>
+                <label class="option"><input type="radio" name="q51" value="C"> C) педагогикалық жүктеменің толық азаюы</label>
+                <label class="option"><input type="radio" name="q51" value="D"> D) тәрбиеші еңбегінің толық жеңілдеуі</label>
+                <label class="option"><input type="radio" name="q51" value="E"> E) кәсіби дамуға қажеттіліктің болмауы</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: B.</strong>
+                Құжатта арнайы кәсіптік даярлығы жоқ педагогтердің үлесі мен біліктілік санаты жоқ педагогтердің көптігі МДТО жүйесінің кадрлық әлеуетін арттыру мәселесін өзекті ететіні көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 16-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <h4>2. Құжатта ауылдық жерлердегі педагогтерге қатысты қандай біліктілік айырмашылығы көрсетілген?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q52" value="A"> A) ауылдық жерде педагог-шеберлер қаладан көп екені</label>
+                <label class="option"><input type="radio" name="q52" value="B"> B) ауылдық жерде педагог-зерттеушілер қаладан толық басым екені</label>
+                <label class="option"><input type="radio" name="q52" value="C"> C) ауылдық жерде барлық санаттар тең бөлінгені</label>
+                <label class="option"><input type="radio" name="q52" value="D"> D) ауылдық жерде педагог-шеберлер қалаға қарағанда аз екені</label>
+                <label class="option"><input type="radio" name="q52" value="E"> E) ауылдық жерде біліктілік санаттары қолданылмайтыны</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: D.</strong>
+                Құжатта ауылдық жерлерде қаламен салыстырғанда педагог-шеберлер аз, ал педагог-шеберге тестілеуден өткен педагогтер 1,8 есе аз екені көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 17-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="A">
+              <h4>3. 2021 жылы мұғалімдерге деген қажеттілік қанша адамды құрады?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q53" value="A"> A) 3733 адам</label>
+                <label class="option"><input type="radio" name="q53" value="B"> B) 4733 адам</label>
+                <label class="option"><input type="radio" name="q53" value="C"> C) 5733 адам</label>
+                <label class="option"><input type="radio" name="q53" value="D"> D) 6733 адам</label>
+                <label class="option"><input type="radio" name="q53" value="E"> E) 7733 адам</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: A.</strong>
+                Құжатта 2021 жылы мұғалімдерге деген қажеттілік 3733 адамды құрағаны көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 17-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="E">
+              <h4>4. Құжат бойынша педагогтерге қажеттіліктің қарқынды өсуі қандай факторлармен байланысты?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q54" value="A"> A) есептік құжаттардың көбеюі және бақылау рәсімдерінің артуы</label>
+                <label class="option"><input type="radio" name="q54" value="B"> B) пәндік кабинеттердің өзгеруі және оқу кестесінің қысқаруы</label>
+                <label class="option"><input type="radio" name="q54" value="C"> C) әдістемелік кеңестердің артуы және журналдардың жаңаруы</label>
+                <label class="option"><input type="radio" name="q54" value="D"> D) бақылау парақтарының көбеюі және есеп беру мерзімінің өзгеруі</label>
+                <label class="option"><input type="radio" name="q54" value="E"> E) демографиялық өсу, жаңа мектептер салу және жеке мектептер үлесінің ұлғаюы</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: E.</strong>
+                Құжатта педагогтерге қажеттілік демографиялық өсу, жаңа мектептер салу және жеке мектептер үлесінің ұлғаюы есебінен қарқынды өсіп отырғаны көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 18-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <h4>5. Жаңартылған білім беру мазмұнына көшу Қазақстан мектептерінде қай жылдар аралығында іске асырылды?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q55" value="A"> A) 2013–2018 жылдар аралығында</label>
+                <label class="option"><input type="radio" name="q55" value="B"> B) 2014–2019 жылдар аралығында</label>
+                <label class="option"><input type="radio" name="q55" value="C"> C) 2015–2020 жылдар аралығында</label>
+                <label class="option"><input type="radio" name="q55" value="D"> D) 2016–2021 жылдар аралығында</label>
+                <label class="option"><input type="radio" name="q55" value="E"> E) 2017–2022 жылдар аралығында</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: C.</strong>
+                Құжатта 2015–2020 жылдар аралығында Қазақстан мектептерінде жаңартылған білім беру мазмұнына көшу іске асырылғаны көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 18-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="B">
+              <h4>6. Жаңартылған мазмұнды іске асыру кезеңінде біліктілікті арттыру жүйесі мұғалімдердің қандай дайындығын қамтамасыз етті?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q56" value="A"> A) тек есептік құжаттарды жүргізу дайындығын</label>
+                <label class="option"><input type="radio" name="q56" value="B"> B) тәсілдер, әдістер, технологиялар және бағалау жүйесін өзгертуге дайындығын</label>
+                <label class="option"><input type="radio" name="q56" value="C"> C) тек сабақ кестесін қайта құру дайындығын</label>
+                <label class="option"><input type="radio" name="q56" value="D"> D) тек әкімшілік бақылауға қатысу дайындығын</label>
+                <label class="option"><input type="radio" name="q56" value="E"> E) тек кабинеттерді техникалық жабдықтау дайындығын</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: B.</strong>
+                Құжатта біліктілікті арттыру жүйесі мұғалімдердің тәсілдерді, әдістер мен технологияларды, оқу жетістіктерін бағалау жүйесін және оқу қарым-қатынасының басымдықтарын өзгертуіне ықпал еткені айтылған.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 18-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="D">
+              <h4>7. ЖОО-лар жаңартылған мектеп білімінің талаптарына қатысты қандай қиындыққа тап болды?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q57" value="A"> A) кәсіби даярлық мазмұнын толық және алдын ала жаңартып үлгерді</label>
+                <label class="option"><input type="radio" name="q57" value="B"> B) кәсіби даярлық мазмұнын өзгертуді қажет етпеді</label>
+                <label class="option"><input type="radio" name="q57" value="C"> C) кәсіби даярлық мазмұнын тек техникалық пәндермен шектеді</label>
+                <label class="option"><input type="radio" name="q57" value="D"> D) кәсіби даярлық мазмұнын шұғыл түрде қайта құрып, жаңарта алмады</label>
+                <label class="option"><input type="radio" name="q57" value="E"> E) кәсіби даярлық мазмұнын тек бақылау есебіне ауыстырды</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: D.</strong>
+                Құжатта ЖОО-лар мектептегі білім берудің жаңартылған мазмұны талаптарына сәйкес кәсіби даярлық мазмұнын шұғыл түрде қайта құрып, жаңарта алмағаны көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 18-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="A">
+              <h4>8. Орта білім мазмұнын жаңарту кезеңінде педагогтерді даярлауда қандай олқылықтар айқын болды?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q58" value="A"> A) орта білім мазмұны, оқыту әдістемесі, пәндік мазмұн және АКТ-құзыреттілігі бойынша</label>
+                <label class="option"><input type="radio" name="q58" value="B"> B) тек есеп беру, құжат сақтау, хаттама жазу және бақылау бойынша</label>
+                <label class="option"><input type="radio" name="q58" value="C"> C) тек спорттық дайындық, жарыс өткізу, зал бөлу және құрал сақтау бойынша</label>
+                <label class="option"><input type="radio" name="q58" value="D"> D) тек тамақтандыру, тасымалдау, күзет және бейнебақылау бойынша</label>
+                <label class="option"><input type="radio" name="q58" value="E"> E) тек әкімшілік жоспар, қаржылық есеп, кесте және акт бойынша</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: A.</strong>
+                Құжатта орта білім беру мазмұны, мектеп пәндерін оқыту әдістемесі, жоғары оқу орындары пәндерінің пәндік мазмұны және АКТ-құзыреттілігі мәселелерінде педагогтерді даярлауда олқылықтар айқын болғаны айтылған.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 18-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="E">
+              <h4>9. Қазақстанда білім беру саласындағы көшбасшыларды даярлауға қатысты қандай тәжірибе жоқ деп көрсетілген?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q59" value="A"> A) лауазымға тағайындалғаннан кейін ғана есеп жинау тәжірибесі</label>
+                <label class="option"><input type="radio" name="q59" value="B"> B) мектеп кестесін өзгерткеннен кейін ғана бақылау жүргізу тәжірибесі</label>
+                <label class="option"><input type="radio" name="q59" value="C"> C) оқу жоспарын бекіткеннен кейін ғана құжат толтыру тәжірибесі</label>
+                <label class="option"><input type="radio" name="q59" value="D"> D) педагогтерді жұмысқа алғаннан кейін ғана тізім жасау тәжірибесі</label>
+                <label class="option"><input type="radio" name="q59" value="E"> E) басшыларды лауазымға тағайындамас бұрын даярлау тәжірибесі</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: E.</strong>
+                Құжатта Қазақстанда білім беру саласындағы көшбасшыларды тағайындамас бұрын оларды даярлау тәжірибесі жоқ екені көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 19-бет.</div>
+              </div>
+            </div>
+
+            <div class="question" data-answer="C">
+              <h4>10. Қазақстан директорларының қанша пайызы мектепті басқаруды лауазымға тағайындалғанға дейін оқығанын атап өткен?</h4>
+              <div class="options">
+                <label class="option"><input type="radio" name="q60" value="A"> A) 9%</label>
+                <label class="option"><input type="radio" name="q60" value="B"> B) 11%</label>
+                <label class="option"><input type="radio" name="q60" value="C"> C) 13%</label>
+                <label class="option"><input type="radio" name="q60" value="D"> D) 15%</label>
+                <label class="option"><input type="radio" name="q60" value="E"> E) 17%</label>
+              </div>
+              <div class="explanation">
+                <strong>Дұрыс жауап: C.</strong>
+                Құжатта Қазақстан директорларының тек 13%-ы мектепті басқаруды лауазымға тағайындалғанға дейін оқығанын атап өткені көрсетілген.
+                <div class="source">Дереккөз: №2 әдебиет — Қазақстан Республикасында білім беруді дамытудың 2022–2026 жылдарға арналған тұжырымдамасы, 19-бет.</div>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button class="btn btn-primary" onclick="checkQuiz('quiz-6')">Нәтижені көрсету</button>
+              <button class="btn btn-soft" onclick="resetQuiz('quiz-6')">Қайта белгілеу</button>
+            </div>
+            <div class="result-box" id="result-quiz-6"></div>
+          </div>
+        </section>
+        
